@@ -1,3 +1,14 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+.login-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-button {
+  margin: 1em;
+}
