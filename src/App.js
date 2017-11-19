@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import AppBarNav from './components/app_bar_nav';
-import LoginScreen from './screens/login_screen';
+import LoginRegisterScreen from './screens/login_register_screen';
 import MainScreen from './screens/main_screen';
 import ResultsScreen from './screens/results_screen';
 
@@ -11,13 +12,15 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <AppBarNav />
+        <MuiThemeProvider>
+          <div className="app">
+            <AppBarNav />
 
-          <Route exact path="/" component={LoginScreen} />
-          <Route path="/main" component={MainScreen} />
-          <Route path="/results" component={ResultsScreen} />
-        </div>
+            <Route exact path="/" component={LoginRegisterScreen} />
+            <Route path="/main" component={MainScreen} />
+            <Route path="/results" component={ResultsScreen} />
+          </div>
+        </MuiThemeProvider>
       </Router>
     );
   }
