@@ -6,12 +6,12 @@ export default class LinearProgressBarTimer extends React.Component {
     super(props);
 
     this.state = {
-      completed: this.props.setMins * 60,
+      completed: this.props.secondsLeft,
     };
   }
 
   componentDidMount() {
-    this.timer = setTimeout(() => this.progress(this.props.setMins * 60), 1000);
+    this.timer = setTimeout(() => this.progress(this.props.secondsLeft), 1000);
   }
 
   componentWillUnmount() {
@@ -33,7 +33,7 @@ export default class LinearProgressBarTimer extends React.Component {
       <LinearProgress
         mode="determinate"
         value={this.state.completed}
-        max={this.props.setMins * 60}
+        max={this.props.secondsLeft}
         min={0}
       />
     );
