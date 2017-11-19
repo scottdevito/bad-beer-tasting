@@ -33,7 +33,7 @@ export default class LinearProgressBarTimer extends React.Component {
       <LinearProgress
         mode="determinate"
         value={this.state.completed}
-        max={this.props.secondsLeft}
+        max={this.props.startSeconds}
         min={0}
       />
     );
