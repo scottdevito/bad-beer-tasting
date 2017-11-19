@@ -1,5 +1,6 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const Login = () => {
@@ -9,7 +10,9 @@ const Login = () => {
 
       <TextField floatingLabelText="Username" />
       <TextField floatingLabelText="Password" />
-      <RaisedButton className="login-button" label="Login" primary={true} />
+      <Link to="/main">
+        <RaisedButton className="login-button" label="Login" primary={true} />
+      </Link>
     </div>
   );
 };
