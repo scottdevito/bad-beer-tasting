@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 const Login = () => {
   return (
-    <div className="login-screen">
+    <div className="login">
       <h1>Login</h1>
 
       <TextField floatingLabelText="Username" />

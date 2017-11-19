@@ -3,6 +3,7 @@ import { Tabs, Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 
 import Login from '../components/login';
+import Register from '../components/register';
 
 const styles = {
   headline: {
@@ -44,8 +45,9 @@ class LoginRegisterScreen extends Component {
           <div>
             <Login />
           </div>
-          <div style={styles.slide}>slide n°2</div>
-          <div style={styles.slide}>slide n°3</div>
+          <div style={styles.slide}>
+            <Register />
+          </div>
         </SwipeableViews>
       </div>
     );
