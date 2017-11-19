@@ -16,7 +16,11 @@ class TimerCount extends Component {
   }
 
   tick() {
-    this.setState({ count: this.state.count - 1 });
+    if (this.state.count > 0) {
+      this.setState({ count: this.state.count - 1 });
+    } else {
+      clearInterval(this.timer);
+    }
   }
 
   render() {
