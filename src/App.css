@@ -12,3 +12,20 @@ body {
 .login-button {
   margin: 1em;
 }
+
+.login-register {
+  width: 40vw;
+}
+
+@media only screen and (max-width: 500px) {
+  .login-register {
+    width: 100vw;
+  }
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
