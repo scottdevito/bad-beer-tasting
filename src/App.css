@@ -68,3 +68,7 @@ body {
 .nav-menu {
   cursor: pointer;
 }
+
+a {
+  text-decoration: none;
+}

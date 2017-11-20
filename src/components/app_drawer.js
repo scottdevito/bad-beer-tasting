@@ -3,6 +3,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 import { white } from 'material-ui/styles/colors';
+import { Link } from 'react-router-dom';
 
 const iconStyle = {
   marginTop: 10,
@@ -35,8 +36,18 @@ class AppDrawer extends Component {
           open={this.state.open}
           onRequestChange={open => this.setState({ open })}
         >
-          <MenuItem onClick={this.handleClose}>Menu Item</MenuItem>
-          <MenuItem onClick={this.handleClose}>Menu Item 2</MenuItem>
+          <Link to="/main">
+            <MenuItem onClick={this.handleClose}>Home</MenuItem>
+          </Link>
+          <Link to="/YourBeer">
+            <MenuItem onClick={this.handleClose}>Your Beer</MenuItem>
+          </Link>
+          <Link to="/results">
+            <MenuItem onClick={this.handleClose}>Results</MenuItem>
+          </Link>
+          <Link to="/account">
+            <MenuItem onClick={this.handleClose}>Account</MenuItem>
+          </Link>
         </Drawer>
       </div>
     );

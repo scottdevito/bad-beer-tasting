@@ -3,7 +3,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
 import Timer from 'material-ui/svg-icons/image/timer';
 import { black500 } from 'material-ui/styles/colors';
-import { Link } from 'react-router-dom';
 
 import LinearProgressBarTimer from '../components/linear_progress_bar_timer';
 import TimerCount from '../components/timer_count';
@@ -35,14 +34,6 @@ const MainScreen = () => {
       ) : (
         <RaisedButton className="game-button" label="Vote Now" primary={true} />
       )}
-
-      <Link to="/results">
-        <RaisedButton
-          className="game-button"
-          label="Results"
-          secondary={true}
-        />
-      </Link>
     </div>
   );
 };
