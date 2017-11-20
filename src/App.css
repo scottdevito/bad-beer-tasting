@@ -64,3 +64,7 @@ body {
 .timer {
   margin: 0.2em;
 }
+
+.nav-menu {
+  cursor: pointer;
+}

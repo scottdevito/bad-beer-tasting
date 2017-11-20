@@ -28,7 +28,7 @@ class TimerCount extends Component {
       seconds = ('0' + this.state.count % 60).slice(-2);
     return (
       <div>
-        <h2 className="timer">{`${minutes} : ${seconds}`}</h2>
+        <h2 className="timer">{`${minutes}:${seconds}`}</h2>
       </div>
     );
   }

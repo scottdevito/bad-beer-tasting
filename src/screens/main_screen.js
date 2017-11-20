@@ -9,7 +9,7 @@ import LinearProgressBarTimer from '../components/linear_progress_bar_timer';
 import TimerCount from '../components/timer_count';
 
 // Pass the amount of seconds until the tasting is over into the LinearProgressBarTimer and TimerCount
-let secondsLeft = 5;
+let secondsLeft = 50;
 let startSeconds = 600;
 const MainScreen = () => {
   return (
