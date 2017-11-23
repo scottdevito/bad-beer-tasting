@@ -7,14 +7,6 @@ import { Link } from 'react-router-dom';
 import AppDrawer from './app_drawer';
 
 class AppBarNav extends Component {
-  // handleClick = () => {
-  //   const rules = {
-  //     pathname: '/rules',
-  //   };
-
-  //   history.push(rules);
-  // };
-
   render() {
     return (
       <AppBar
