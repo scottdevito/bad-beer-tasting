@@ -47,6 +47,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 1em;
+  height: 60vh;
 }
 
 .timer-icon {
@@ -71,4 +72,18 @@ body {
 
 a {
   text-decoration: none;
+}
+
+/* Login sizing/styling for mobile/desktop */
+@media (min-width: 426px) {
+  .login-register {
+    margin-top: 7em;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+    border-radius: 2px;
+    z-index: 1;
+  }
+}
+
+a {
+  color: white;
 }
