@@ -7,6 +7,7 @@ import AppBarNav from './components/app_bar_nav';
 import LoginRegisterScreen from './screens/login_register_screen';
 import MainScreen from './screens/main_screen';
 import ResultsScreen from './screens/results_screen';
+import RulesScreen from './screens/rules_screen';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             <Route exact path="/" component={LoginRegisterScreen} />
             <Route path="/main" component={MainScreen} />
             <Route path="/results" component={ResultsScreen} />
+            <Route path="/rules" component={RulesScreen} />
           </div>
         </MuiThemeProvider>
       </Router>
