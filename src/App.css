@@ -87,3 +87,20 @@ a {
 a {
   color: white;
 }
+
+/* Your Beer Screen */
+.your-beer-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.image-upload {
+  margin-top: 2em;
+}
+
+.your-beer-submit {
+  margin: 2em;
+}

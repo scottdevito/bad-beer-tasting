@@ -39,7 +39,7 @@ class AppDrawer extends Component {
           <Link to="/main">
             <MenuItem onClick={this.handleClose}>Home</MenuItem>
           </Link>
-          <Link to="/YourBeer">
+          <Link to="/your-beer">
             <MenuItem onClick={this.handleClose}>Your Beer</MenuItem>
           </Link>
           <Link to="/results">

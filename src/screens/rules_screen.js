@@ -63,7 +63,7 @@ class RulesScreen extends Component {
   }
 
   render() {
-    const { finished, stepIndex } = this.state;
+    const { stepIndex } = this.state;
 
     return (
       <div style={{ maxWidth: 380, maxHeight: 400, margin: 'auto' }}>
