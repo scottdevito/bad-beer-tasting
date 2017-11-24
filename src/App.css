@@ -57,6 +57,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 1em;
+  width: 50vw;
 }
 
 .timer-icon {

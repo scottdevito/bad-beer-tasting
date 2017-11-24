@@ -6,6 +6,7 @@ class YourBeerScreen extends Component {
   render() {
     return (
       <div className="your-beer-screen">
+        <h2>Add Your Beer</h2>
         <TextField
           hintText="It better be fucking trash"
           floatingLabelText="Enter the name of your beer"
