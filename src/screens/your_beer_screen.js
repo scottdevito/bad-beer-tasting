@@ -13,13 +13,6 @@ class YourBeerScreen extends Component {
 
         <TextField floatingLabelText="Enter a short description" />
 
-        <input
-          className="image-upload"
-          accept="image/*"
-          id="icon-button-file"
-          type="file"
-        />
-
         <RaisedButton
           className="your-beer-submit"
           label="Submit Beer"

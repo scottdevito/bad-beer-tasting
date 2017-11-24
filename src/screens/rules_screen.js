@@ -51,7 +51,7 @@ class RulesScreen extends Component {
 
         {step > 0 && (
           <FlatButton
-            label="Back"
+            label="Previous"
             disabled={stepIndex === 0}
             disableTouchRipple={true}
             disableFocusRipple={true}
