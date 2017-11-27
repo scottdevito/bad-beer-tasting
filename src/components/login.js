@@ -9,7 +9,7 @@ const Login = () => {
       <h1>Login</h1>
 
       <TextField floatingLabelText="Username" />
-      <TextField floatingLabelText="Password" />
+      <TextField floatingLabelText="Password" type="password" />
       <Link to="/main">
         <RaisedButton className="login-button" label="Login" primary={true} />
       </Link>

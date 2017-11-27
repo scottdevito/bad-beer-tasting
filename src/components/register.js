@@ -9,7 +9,11 @@ const Register = () => {
       <h1>Register</h1>
 
       <TextField hintText="Create a username" floatingLabelText="Username" />
-      <TextField hintText="Create a password" floatingLabelText="Password" />
+      <TextField
+        hintText="Create a password"
+        floatingLabelText="Password"
+        type="password"
+      />
       <Link to="/main">
         <RaisedButton
           className="register-button"
