@@ -16,7 +16,7 @@ class YourBeerScreen extends Component {
 
         <RaisedButton
           className="your-beer-submit"
-          label="Submit Beer"
+          label="Submit"
           primary={true}
         />
       </div>

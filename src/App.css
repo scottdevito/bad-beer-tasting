@@ -20,6 +20,11 @@ body {
   margin: 1em;
 }
 
+.facebook-login-button {
+  margin-bottom: 1.5em;
+  margin-top: 0.75em;
+}
+
 .register-button {
   margin: 1em;
 }
