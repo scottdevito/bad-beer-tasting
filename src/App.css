@@ -117,3 +117,12 @@ a {
 .your-beer-submit {
   margin: 2em;
 }
+
+/* Vote Screen */
+.vote-header {
+  margin-bottom: 0em;
+}
+
+.vote-subheader {
+  margin: 0em;
+}
