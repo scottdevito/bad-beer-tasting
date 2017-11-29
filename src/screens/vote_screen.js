@@ -38,7 +38,18 @@ class VoteScreen extends Component {
   }
 
   renderBeerList = data => {
-    return data.map(item => {
+    let { selectedBeerIds } = this.state;
+
+    // Hide button after the user has voted for a beer
+    let filteredData = data.filter(beer => {
+      return (
+        beer.beerName !== selectedBeerIds[0] &&
+        beer.beerName !== selectedBeerIds[1] &&
+        beer.beerName !== selectedBeerIds[2]
+      );
+    });
+
+    return filteredData.map(item => {
       return (
         <div key={item.id}>
           <Divider />
