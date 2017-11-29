@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import YourBeerPreview from '../components/your_beer_preview';
-
 class YourBeerScreen extends Component {
   constructor(props) {
     super(props);
@@ -39,15 +37,6 @@ class YourBeerScreen extends Component {
           label="Submit"
           primary={true}
         />
-
-        <h3>Preview:</h3>
-        {this.state.myBeer ? (
-          <div>
-            <YourBeerPreview myBeer={this.state.myBeer} />
-          </div>
-        ) : (
-          ''
-        )}
       </div>
     );
   }
