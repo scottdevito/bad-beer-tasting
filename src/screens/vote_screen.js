@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { List, ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
-
 import { Tabs, Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
+import FlatButton from 'material-ui/FlatButton';
 
 // TODO: Add submit button (must have voted on 3 beers), style properly, use filter to remove beers once they're chosen
 
@@ -43,7 +43,7 @@ class VoteScreen extends Component {
         <div key={item.id}>
           <Divider />
           <ListItem
-            onClick={() => this.selectBeer(item.id)}
+            onClick={() => this.selectBeer(item.beerName)}
             primaryText={item.beerName}
           />
           <Divider />
@@ -73,11 +73,24 @@ class VoteScreen extends Component {
     });
   };
 
+  renderSubmitButton = () => {
+    let { selectedBeerIds } = this.state;
+
+    if (selectedBeerIds[0] && selectedBeerIds[1] && selectedBeerIds[2]) {
+      return (
+        <FlatButton
+          label="Submit Vote"
+          fullWidth={true}
+          backgroundColor="#80e27e"
+          hoverColor="#4caf50"
+        />
+      );
+    }
+  };
+
   render() {
     return (
       <div>
-        <h3 className="vote-header">3 Worst Tasting Beers</h3>
-
         <div>
           <Tabs onChange={this.handleSwipeChange} value={this.state.slideIndex}>
             <Tab label="#1" value={0} />
@@ -88,20 +101,21 @@ class VoteScreen extends Component {
             index={this.state.slideIndex}
             onChangeIndex={this.handleSwipeChange}
           >
-            <div>
-              <p>Worst tasting beer #1</p>
+            <div className="vote-preview-container">
+              <p>Select worst tasting beer #1</p>
               <h2>{this.state.selectedBeerIds[0]}</h2>
             </div>
-            <div>
-              <p>Worst tasting beer #2</p>
+            <div className="vote-preview-container">
+              <p>Select worst tasting beer #2</p>
               <h2>{this.state.selectedBeerIds[1]}</h2>
             </div>
-            <div>
-              <p>Worst tasting beer #3</p>
+            <div className="vote-preview-container">
+              <p>Select worst tasting beer #3</p>
               <h2>{this.state.selectedBeerIds[2]}</h2>
             </div>
           </SwipeableViews>
         </div>
+        {this.renderSubmitButton()}
         <List>{this.renderBeerList(data)}</List>
       </div>
     );

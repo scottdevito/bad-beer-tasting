@@ -126,3 +126,10 @@ a {
 .vote-subheader {
   margin: 0em;
 }
+
+.vote-preview-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
