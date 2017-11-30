@@ -34,7 +34,12 @@ class LoginRegisterScreen extends Component {
   render() {
     return (
       <div className="app-title">
-        <h1>Bad Beer Tasting</h1>
+        <h1 className="hide-for-mobile">Bad Beer Tasting</h1>
+        <img
+          className="hide-for-mobile"
+          src="https://s3.amazonaws.com/bad-beer-tasting/Trash+Medal.svg"
+          alt="logo"
+        />
         <div className="login-register">
           <Tabs onChange={this.handleChange} value={this.state.slideIndex}>
             <Tab label="Login" value={0} />
