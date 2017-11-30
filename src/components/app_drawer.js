@@ -4,6 +4,11 @@ import MenuItem from 'material-ui/MenuItem';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 import { white } from 'material-ui/styles/colors';
 import { Link } from 'react-router-dom';
+import ActionHome from 'material-ui/svg-icons/action/home';
+import LibraryBooks from 'material-ui/svg-icons/av/library-books';
+import LocalDrink from 'material-ui/svg-icons/maps/local-drink';
+import PlaylistAddCheck from 'material-ui/svg-icons/av/playlist-add-check';
+import Poll from 'material-ui/svg-icons/social/poll';
 
 const iconStyle = {
   marginTop: 10,
@@ -37,19 +42,32 @@ class AppDrawer extends Component {
           onRequestChange={open => this.setState({ open })}
         >
           <Link to="/main">
-            <MenuItem onClick={this.handleClose}>Home</MenuItem>
+            <MenuItem onClick={this.handleClose} leftIcon={<ActionHome />}>
+              Home
+            </MenuItem>
           </Link>
           <Link to="/rules">
-            <MenuItem onClick={this.handleClose}>Rules Explained</MenuItem>
+            <MenuItem onClick={this.handleClose} leftIcon={<LibraryBooks />}>
+              Rules Explained
+            </MenuItem>
           </Link>
           <Link to="/your-beer">
-            <MenuItem onClick={this.handleClose}>Your Beer</MenuItem>
+            <MenuItem onClick={this.handleClose} leftIcon={<LocalDrink />}>
+              Your Beer
+            </MenuItem>
           </Link>
           <Link to="/vote">
-            <MenuItem onClick={this.handleClose}>Vote</MenuItem>
+            <MenuItem
+              onClick={this.handleClose}
+              leftIcon={<PlaylistAddCheck />}
+            >
+              Vote
+            </MenuItem>
           </Link>
           <Link to="/results">
-            <MenuItem onClick={this.handleClose}>Results</MenuItem>
+            <MenuItem onClick={this.handleClose} leftIcon={<Poll />}>
+              Results
+            </MenuItem>
           </Link>
         </Drawer>
       </div>
