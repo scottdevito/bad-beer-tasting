@@ -33,22 +33,25 @@ class LoginRegisterScreen extends Component {
 
   render() {
     return (
-      <div className="login-register">
-        <Tabs onChange={this.handleChange} value={this.state.slideIndex}>
-          <Tab label="Login" value={0} />
-          <Tab label="Register" value={1} />
-        </Tabs>
-        <SwipeableViews
-          index={this.state.slideIndex}
-          onChangeIndex={this.handleChange}
-        >
-          <div>
-            <Login />
-          </div>
-          <div style={styles.slide}>
-            <Register />
-          </div>
-        </SwipeableViews>
+      <div className="app-title">
+        <h1>Bad Beer Tasting</h1>
+        <div className="login-register">
+          <Tabs onChange={this.handleChange} value={this.state.slideIndex}>
+            <Tab label="Login" value={0} />
+            <Tab label="Register" value={1} />
+          </Tabs>
+          <SwipeableViews
+            index={this.state.slideIndex}
+            onChangeIndex={this.handleChange}
+          >
+            <div>
+              <Login />
+            </div>
+            <div style={styles.slide}>
+              <Register />
+            </div>
+          </SwipeableViews>
+        </div>
       </div>
     );
   }

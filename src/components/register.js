@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 const Register = () => {
   return (
     <div className="register">
-      <h1>Register</h1>
-
       <TextField hintText="Create a username" floatingLabelText="Username" />
       <TextField
         hintText="Create a password"
@@ -17,7 +15,7 @@ const Register = () => {
       <Link to="/main">
         <RaisedButton
           className="register-button"
-          label="Submit"
+          label="Register"
           primary={true}
         />
       </Link>
