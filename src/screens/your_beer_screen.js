@@ -8,14 +8,15 @@ class YourBeerScreen extends Component {
 
     this.state = {
       myBeer: '',
+      beerDescription: '',
     };
   }
 
-  onAddBeerInputChange = event => {
+  onAddBeerInputChange = (event, fieldId) => {
     let value = event.target.value;
 
     this.setState((prevState, props) => {
-      return { myBeer: value };
+      return { [fieldId]: value };
     });
   };
 
@@ -27,9 +28,17 @@ class YourBeerScreen extends Component {
           hintText="It better be fucking trash"
           floatingLabelText="Enter the name of your beer"
           onChange={event => {
-            this.onAddBeerInputChange(event);
+            this.onAddBeerInputChange(event, 'myBeer');
           }}
           value={this.state.myBeer}
+        />
+
+        <TextField
+          floatingLabelText="Enter a short description"
+          onChange={event => {
+            this.onAddBeerInputChange(event, 'beerDescription');
+          }}
+          value={this.state.beerDescription}
         />
 
         <RaisedButton
