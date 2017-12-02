@@ -74,7 +74,7 @@ class VoteScreen extends Component {
     newSelectedBeerIds[slideIndex] = id;
 
     this.setState({
-      selectedBeerIds: Object.assign(selectedBeerIds, newSelectedBeerIds),
+      selectedBeerIds: Object.assign({}, selectedBeerIds, newSelectedBeerIds),
     });
   };
 
