@@ -1,5 +1,3 @@
-// Import action
+import { testAction } from './test.A';
 
-// export {
-//     ,
-// };
+export { testAction };
