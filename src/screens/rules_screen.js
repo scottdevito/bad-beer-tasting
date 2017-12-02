@@ -84,11 +84,12 @@ class RulesScreen extends Component {
           </Step>
           <Step>
             <StepLabel>
-              <h3>Vote on the top 3 worst beers</h3>
+              <h3>Vote on the worst and best beer</h3>
             </StepLabel>
             <StepContent>
               <p>
-                Vote on which of the beers you think were the worst tasting{' '}
+                Vote on which beer you thought tasted the worst and which beer
+                you thought tasted the best.
               </p>
               <img
                 src="https://s3.amazonaws.com/bad-beer-tasting/Worst+Beer+Ballot.svg"
