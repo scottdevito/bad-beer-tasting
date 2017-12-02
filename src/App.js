@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import AppBarNav from './components/app_bar_nav';
-import LoginRegisterScreen from './screens/login_register_screen';
+import LoginRegisterScreenContainer from './containers/login_register_screen.C';
 import MainScreen from './screens/main_screen';
 import ResultsScreen from './screens/results_screen';
 import RulesScreen from './screens/rules_screen';
@@ -19,7 +19,7 @@ class App extends Component {
           <div className="app">
             <AppBarNav />
 
-            <Route exact path="/" component={LoginRegisterScreen} />
+            <Route exact path="/" component={LoginRegisterScreenContainer} />
             <Route path="/main" component={MainScreen} />
             <Route path="/your-beer" component={YourBeerScreen} />
             <Route path="/vote" component={VoteScreen} />
