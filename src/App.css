@@ -54,11 +54,26 @@ body {
   .app-title {
     margin-top: 0em;
   }
+
+  .vote-swipe {
+    width: 100vw;
+  }
 }
 
 /* Syling for desktop */
 @media (min-width: 426px) {
   .login-register {
+    margin-top: 1.5em;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+    border-radius: 2px;
+    z-index: 1;
+  }
+
+  .vote-swipe {
+    width: 50vw;
+  }
+
+  .vote-screen {
     margin-top: 1.5em;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
     border-radius: 2px;
@@ -149,4 +164,5 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 8em;
 }

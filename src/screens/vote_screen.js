@@ -12,7 +12,7 @@ const data = [
   { beerName: 'Beer 2', username: 'some user 2', id: 1 },
   { beerName: 'Beer 3', username: 'some user 2', id: 2 },
   {
-    beerName: 'Beer 4 a kljlksjd klj lkj sljkljalkjs',
+    beerName: 'Beer 4 a sdflkj',
     username: 'some user 2',
     id: 3,
   },
@@ -31,7 +31,6 @@ class VoteScreen extends Component {
       selectedBeerIds: {
         0: '',
         1: '',
-        2: '',
       },
       slideIndex: 0,
     };
@@ -44,8 +43,7 @@ class VoteScreen extends Component {
     let filteredData = data.filter(beer => {
       return (
         beer.beerName !== selectedBeerIds[0] &&
-        beer.beerName !== selectedBeerIds[1] &&
-        beer.beerName !== selectedBeerIds[2]
+        beer.beerName !== selectedBeerIds[1]
       );
     });
 
@@ -87,7 +85,7 @@ class VoteScreen extends Component {
   renderSubmitButton = () => {
     let { selectedBeerIds } = this.state;
 
-    if (selectedBeerIds[0] && selectedBeerIds[1] && selectedBeerIds[2]) {
+    if (selectedBeerIds[0] && selectedBeerIds[1]) {
       return (
         <FlatButton
           label="Submit Vote"
@@ -101,28 +99,21 @@ class VoteScreen extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div className="vote-screen">
+        <div className="vote-swipe">
           <Tabs onChange={this.handleSwipeChange} value={this.state.slideIndex}>
-            <Tab label="#1" value={0} />
-            <Tab label="#2" value={1} />
-            <Tab label="#3" value={2} />
+            <Tab label="Worst Tasting Beer" value={0} />
+            <Tab label="Best Tasting Beer" value={1} />
           </Tabs>
           <SwipeableViews
             index={this.state.slideIndex}
             onChangeIndex={this.handleSwipeChange}
           >
             <div className="vote-preview-container">
-              <p>Select worst tasting beer #1</p>
               <h2>{this.state.selectedBeerIds[0]}</h2>
             </div>
             <div className="vote-preview-container">
-              <p>Select worst tasting beer #2</p>
               <h2>{this.state.selectedBeerIds[1]}</h2>
-            </div>
-            <div className="vote-preview-container">
-              <p>Select worst tasting beer #3</p>
-              <h2>{this.state.selectedBeerIds[2]}</h2>
             </div>
           </SwipeableViews>
         </div>
