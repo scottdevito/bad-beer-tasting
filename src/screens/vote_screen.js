@@ -5,8 +5,6 @@ import { Tabs, Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import FlatButton from 'material-ui/FlatButton';
 
-// TODO: Add submit button (must have voted on 3 beers), style properly, use filter to remove beers once they're chosen
-
 const data = [
   { beerName: 'Beer 1', username: 'some user 2', id: 0 },
   { beerName: 'Beer 2', username: 'some user 2', id: 1 },
@@ -61,9 +59,7 @@ class VoteScreen extends Component {
     });
   };
 
-  // Only allow user to select 3 beers
   // If the beer id already exists in the object, replace it
-  // Order is important
   selectBeer = id => {
     let { selectedBeerIds, slideIndex } = this.state;
 

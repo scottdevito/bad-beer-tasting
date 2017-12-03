@@ -25,7 +25,7 @@ class YourBeerScreen extends Component {
       <div className="your-beer-screen">
         <h2>Add Your Beer</h2>
         <TextField
-          hintText="It better be fucking trash"
+          hintText="It better be trash"
           floatingLabelText="Enter the name of your beer"
           onChange={event => {
             this.onAddBeerInputChange(event, 'myBeer');
