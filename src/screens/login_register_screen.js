@@ -32,7 +32,6 @@ class LoginRegisterScreen extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className="app-title">
         <h1 className="hide-for-mobile">Bad Beer Tasting</h1>
@@ -52,14 +51,9 @@ class LoginRegisterScreen extends Component {
           >
             <div>
               <Login />
-              <button
-                onClick={() => {
-                  this.props.testAction();
-                }}
-              />
             </div>
             <div style={styles.slide}>
-              <Register />
+              <Register fbRegister={this.props.fbRegister} />
             </div>
           </SwipeableViews>
         </div>
