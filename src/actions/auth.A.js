@@ -57,6 +57,7 @@ const createNewUser = ({ email, uid }) => {
 };
 
 // Fetch user data from Firestore and set locally in Redux store
+// Data is updated in real time
 const setUserDbInfo = ({ uid }) => {
   return dispatch => {
     var docRef = db.collection('users').doc(uid);
