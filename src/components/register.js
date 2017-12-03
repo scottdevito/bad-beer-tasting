@@ -29,7 +29,7 @@ class Register extends Component {
     });
 
     // Fire fbRegister action
-    //Display error if there is one
+    // Display error if there is one
     this.props.fbRegister(this.state).catch(error => {
       this.setState((prevState, props) => {
         return { error: error.code };

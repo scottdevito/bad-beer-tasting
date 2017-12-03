@@ -1,6 +1,6 @@
 import { REGISTER_SUCCESS, REGISTER_FAIL } from './types';
 import firebase from 'firebase';
-// import db from '../startup/db_init';
+import db from '../startup/db_init';
 
 // const createNewUser = () => {};
 
