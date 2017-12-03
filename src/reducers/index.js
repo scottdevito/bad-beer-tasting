@@ -1,16 +1,9 @@
-// import { combineReducers } from 'redux';
-// import TestReducer from './test.R';
-
-// const rootReducer = combineReducers({
-//   test: TestReducer,
-// });
-
-// export default rootReducer;
-
 import { combineReducers } from 'redux';
+import AuthReducer from './auth.R';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state,
+  auth: AuthReducer,
+  loggedIn: AuthReducer,
 });
 
 export default rootReducer;
