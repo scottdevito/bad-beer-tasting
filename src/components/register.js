@@ -41,8 +41,8 @@ class Register extends Component {
     return (
       <div className="register">
         <TextField
-          hintText="Create a username"
-          floatingLabelText="Username"
+          hintText="Enter your email"
+          floatingLabelText="Email"
           onChange={event => {
             this.onRegisterInputChange(event, 'email');
           }}

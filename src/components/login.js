@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 const Login = () => {
   return (
     <div className="login">
-      <TextField floatingLabelText="Username" />
+      <TextField floatingLabelText="Email" />
       <TextField floatingLabelText="Password" type="password" />
       <Link to="/main">
         <RaisedButton className="login-button" label="Login" primary={true} />
