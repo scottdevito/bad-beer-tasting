@@ -3,11 +3,10 @@ import {
   REGISTER_FAIL,
   CREATE_NEW_USER_SUCCESS,
   CREATE_NEW_USER_FAIL,
+  SET_USER_DB_INFO,
 } from './types';
 import firebase from 'firebase';
 import db from '../startup/db_init';
-
-// const setUserDbInfo = () => {};
 
 const fbRegister = ({ email, password }) => {
   return dispatch => {
@@ -17,9 +16,9 @@ const fbRegister = ({ email, password }) => {
         .createUserWithEmailAndPassword(email, password)
         .then(user => {
           dispatch(createNewUser(user));
-          // dispatch(setUserDbInfo(user));
           dispatch({ type: REGISTER_SUCCESS, payload: { user } });
-          // fetch info for this user and set in store
+          dispatch(setUserDbInfo(user));
+          // fetch beer and gameinfo collections - fetchGameData
           resolve(user);
         })
         .catch(error => {
@@ -36,7 +35,8 @@ const createNewUser = ({ email, uid }) => {
   return dispatch => {
     db
       .collection('users')
-      .add({
+      .doc(uid)
+      .set({
         email: email.toLowerCase(),
         beerId: '',
         admin: false,
@@ -56,4 +56,15 @@ const createNewUser = ({ email, uid }) => {
   };
 };
 
-export { fbRegister, createNewUser };
+// Fetch user data from Firestore and set locally in Redux store
+const setUserDbInfo = ({ uid }) => {
+  return dispatch => {
+    var docRef = db.collection('users').doc(uid);
+
+    docRef.onSnapshot(function(doc) {
+      dispatch({ type: SET_USER_DB_INFO, payload: doc.data() });
+    });
+  };
+};
+
+export { fbRegister, createNewUser, setUserDbInfo };
