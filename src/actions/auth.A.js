@@ -3,7 +3,7 @@ import {
   REGISTER_FAIL,
   CREATE_NEW_USER_SUCCESS,
   CREATE_NEW_USER_FAIL,
-  SET_USER_DB_INFO,
+  FETCH_USER_DB_INFO,
 } from './types';
 import firebase from 'firebase';
 import db from '../startup/db_init';
@@ -13,12 +13,15 @@ const fbRegister = ({ email, password }) => {
     return new Promise((resolve, reject) => {
       firebase
         .auth()
+        // Creates a new user in the Firebase auth system
         .createUserWithEmailAndPassword(email, password)
         .then(user => {
+          // Creates a new user in the Firestore db, users collection
           dispatch(createNewUser(user));
           dispatch({ type: REGISTER_SUCCESS, payload: { user } });
-          dispatch(setUserDbInfo(user));
-          // fetch beer and gameinfo collections - fetchGameData
+          // Uses UID to fetch user info from Firestore db and store in Redux store
+          dispatch(fetchUserDbInfo(user));
+          // TODO: fetch beer and gameinfo collections - fetchGameData
           resolve(user);
         })
         .catch(error => {
@@ -58,14 +61,14 @@ const createNewUser = ({ email, uid }) => {
 
 // Fetch user data from Firestore and set locally in Redux store
 // Data is updated in real time
-const setUserDbInfo = ({ uid }) => {
+const fetchUserDbInfo = ({ uid }) => {
   return dispatch => {
     var docRef = db.collection('users').doc(uid);
 
     docRef.onSnapshot(function(doc) {
-      dispatch({ type: SET_USER_DB_INFO, payload: doc.data() });
+      dispatch({ type: FETCH_USER_DB_INFO, payload: doc.data() });
     });
   };
 };
 
-export { fbRegister, createNewUser, setUserDbInfo };
+export { fbRegister, createNewUser, fetchUserDbInfo };
