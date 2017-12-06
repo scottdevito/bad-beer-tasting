@@ -7,3 +7,4 @@ export const FETCH_USER_DB_INFO = 'FETCH_USER_DB_INFO';
 
 // Game Data
 export const FETCH_BEER_INFO = 'FETCH_BEER_INFO';
+export const FETCH_GAME_INFO = 'FETCH_GAME_INFO';

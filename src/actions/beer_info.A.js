@@ -10,7 +10,6 @@ const fetchBeerInfo = () => {
       querySnapshot.forEach(function(querySnapshot) {
         beers.push(querySnapshot.data());
       });
-      console.log(beers);
       dispatch({ type: FETCH_BEER_INFO, payload: beers });
     });
   };

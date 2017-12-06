@@ -7,7 +7,8 @@ import {
 } from './types';
 import firebase from 'firebase';
 import db from '../startup/db_init';
-import { fetchBeerInfo } from './game_data.A';
+import { fetchBeerInfo } from './beer_info.A';
+import { fetchGameInfo } from './game_info.A';
 
 const fbRegister = ({ email, password }) => {
   return dispatch => {
@@ -24,7 +25,8 @@ const fbRegister = ({ email, password }) => {
           dispatch(fetchUserDbInfo(user));
           // Fetch Beers collection
           dispatch(fetchBeerInfo());
-          // TODO: Fetch Game Info collection
+          // Fetch Game Info collection
+          dispatch(fetchGameInfo());
           resolve(user);
         })
         .catch(error => {
