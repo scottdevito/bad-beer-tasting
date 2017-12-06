@@ -7,6 +7,7 @@ import {
 } from './types';
 import firebase from 'firebase';
 import db from '../startup/db_init';
+import { fetchBeerInfo } from './game_data.A';
 
 const fbRegister = ({ email, password }) => {
   return dispatch => {
@@ -21,7 +22,9 @@ const fbRegister = ({ email, password }) => {
           dispatch({ type: REGISTER_SUCCESS, payload: { user } });
           // Uses UID to fetch user info from Firestore db and store in Redux store
           dispatch(fetchUserDbInfo(user));
-          // TODO: fetch beer and gameinfo collections - fetchGameData
+          // Fetch Beers collection
+          dispatch(fetchBeerInfo());
+          // TODO: Fetch Game Info collection
           resolve(user);
         })
         .catch(error => {
