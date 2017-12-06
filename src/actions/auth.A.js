@@ -48,6 +48,8 @@ const createNewUser = ({ email, uid }) => {
           .slice(0, 10)
           .replace(/-/g, '/'),
         uid: uid,
+        bestVote: '',
+        worstVote: '',
       })
       .then(function(docRef) {
         dispatch({ type: CREATE_NEW_USER_SUCCESS });
