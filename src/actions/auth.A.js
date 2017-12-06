@@ -51,7 +51,7 @@ const createNewUser = ({ email, uid }) => {
         bestVote: '',
         worstVote: '',
       })
-      .then(function(docRef) {
+      .then(function(userDocRef) {
         dispatch({ type: CREATE_NEW_USER_SUCCESS });
       })
       .catch(function(error) {
@@ -65,9 +65,9 @@ const createNewUser = ({ email, uid }) => {
 // Data is updated in real time
 const fetchUserDbInfo = ({ uid }) => {
   return dispatch => {
-    var docRef = db.collection('users').doc(uid);
+    const dbInfoDocRef = db.collection('users').doc(uid);
 
-    docRef.onSnapshot(function(doc) {
+    dbInfoDocRef.onSnapshot(function(doc) {
       dispatch({ type: FETCH_USER_DB_INFO, payload: doc.data() });
     });
   };
