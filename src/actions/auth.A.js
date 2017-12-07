@@ -7,6 +7,9 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   SET_USER_AUTH_INFO,
+  CLEAR_USER_INFO,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAIL,
 } from './types';
 import firebase from 'firebase';
 import db from '../startup/db_init';
@@ -96,6 +99,25 @@ const fbLogin = ({ email, password }) => {
   };
 };
 
+const fbLogout = () => {
+  return dispatch => {
+    return new Promise((resolve, reject) => {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          dispatch({ type: CLEAR_USER_INFO });
+          dispatch({ type: LOGOUT_SUCCESS });
+          resolve();
+        })
+        .catch(error => {
+          dispatch({ type: LOGOUT_FAIL, payload: { error } });
+          reject(error);
+        });
+    });
+  };
+};
+
 // Fetch user data from Firestore and set locally in Redux store
 // Data is updated in real time
 const fetchUserDbInfo = ({ uid }) => {
@@ -108,4 +130,4 @@ const fetchUserDbInfo = ({ uid }) => {
   };
 };
 
-export { fbRegister, createNewUser, fetchUserDbInfo, fbLogin };
+export { fbRegister, createNewUser, fetchUserDbInfo, fbLogin, fbLogout };
