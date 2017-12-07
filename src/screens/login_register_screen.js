@@ -50,7 +50,7 @@ class LoginRegisterScreen extends Component {
             onChangeIndex={this.handleChange}
           >
             <div>
-              <Login />
+              <Login fbLogin={this.props.fbLogin} />
             </div>
             <div style={styles.slide}>
               <Register fbRegister={this.props.fbRegister} />
