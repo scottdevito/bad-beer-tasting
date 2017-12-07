@@ -82,8 +82,6 @@ const fbLogin = ({ email, password }) => {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(user => {
-          // Set store variable loggedIn to true
-          dispatch({ type: LOGIN_SUCCESS });
           // Store user info in the store under auth variable
           dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
           // Uses UID to fetch user info from Firestore db and store in Redux store
@@ -92,6 +90,8 @@ const fbLogin = ({ email, password }) => {
           dispatch(fetchBeerInfo());
           // Fetch Game Info collection
           dispatch(fetchGameInfo());
+          // Set store variable loggedIn to true
+          dispatch({ type: LOGIN_SUCCESS });
           resolve(user);
         })
         .catch(error => {
@@ -124,6 +124,18 @@ const fbLogout = () => {
   };
 };
 
+const fbLoginPersist = user => {
+  return dispatch => {
+    dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
+    dispatch(fetchUserDbInfo(user));
+    // Fetch beers collection
+    dispatch(fetchBeerInfo());
+    // Fetch Game Info collection
+    dispatch(fetchGameInfo());
+    dispatch({ type: LOGIN_SUCCESS, payload: { user } });
+  };
+};
+
 // Fetch user data from Firestore and set locally in Redux store
 // Data is updated in real time
 const fetchUserDbInfo = ({ uid }) => {
@@ -136,4 +148,11 @@ const fetchUserDbInfo = ({ uid }) => {
   };
 };
 
-export { fbRegister, createNewUser, fetchUserDbInfo, fbLogin, fbLogout };
+export {
+  fbRegister,
+  createNewUser,
+  fetchUserDbInfo,
+  fbLogin,
+  fbLogout,
+  fbLoginPersist,
+};

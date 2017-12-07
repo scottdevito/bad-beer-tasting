@@ -1,3 +1,3 @@
-import { fbRegister, fbLogin, fbLogout } from './auth.A';
+import { fbRegister, fbLogin, fbLogout, fbLoginPersist } from './auth.A';
 
-export { fbRegister, fbLogin, fbLogout };
+export { fbRegister, fbLogin, fbLogout, fbLoginPersist };
