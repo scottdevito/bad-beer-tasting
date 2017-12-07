@@ -4,6 +4,9 @@ import {
   CREATE_NEW_USER_SUCCESS,
   CREATE_NEW_USER_FAIL,
   FETCH_USER_DB_INFO,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  SET_USER_AUTH_INFO,
 } from './types';
 import firebase from 'firebase';
 import db from '../startup/db_init';
@@ -66,6 +69,33 @@ const createNewUser = ({ email, uid }) => {
   };
 };
 
+const fbLogin = ({ email, password }) => {
+  return dispatch => {
+    return new Promise((resolve, reject) => {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(user => {
+          // Set store variable loggedIn to true
+          dispatch({ type: LOGIN_SUCCESS });
+          // Store user info in the store under auth variable
+          dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
+          // Uses UID to fetch user info from Firestore db and store in Redux store
+          dispatch(fetchUserDbInfo(user));
+          // Fetch beers collection
+          dispatch(fetchBeerInfo());
+          // Fetch Game Info collection
+          dispatch(fetchGameInfo());
+          resolve(user);
+        })
+        .catch(error => {
+          dispatch({ type: LOGIN_FAIL, payload: { error } });
+          reject(error);
+        });
+    });
+  };
+};
+
 // Fetch user data from Firestore and set locally in Redux store
 // Data is updated in real time
 const fetchUserDbInfo = ({ uid }) => {
@@ -78,4 +108,4 @@ const fetchUserDbInfo = ({ uid }) => {
   };
 };
 
-export { fbRegister, createNewUser, fetchUserDbInfo };
+export { fbRegister, createNewUser, fetchUserDbInfo, fbLogin };
