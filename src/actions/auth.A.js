@@ -107,6 +107,9 @@ const fbLogout = () => {
         .signOut()
         .then(() => {
           dispatch({ type: CLEAR_USER_INFO });
+          // Clear USERDBINFO
+          // Clear GAMESINFO
+          // Clear BEERSINFO
           dispatch({ type: LOGOUT_SUCCESS });
           resolve();
         })

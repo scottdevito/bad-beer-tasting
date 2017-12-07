@@ -10,6 +10,7 @@ import ResultsScreen from './screens/results_screen';
 import RulesScreen from './screens/rules_screen';
 import YourBeerScreen from './screens/your_beer_screen';
 import VoteScreen from './screens/vote_screen';
+import AccountScreenContainer from './containers/account_screen.C';
 
 class App extends Component {
   render() {
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path="/vote" component={VoteScreen} />
             <Route path="/results" component={ResultsScreen} />
             <Route path="/rules" component={RulesScreen} />
+            <Route path="/account" component={AccountScreenContainer} />
           </div>
         </MuiThemeProvider>
       </Router>
