@@ -7,7 +7,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   SET_USER_AUTH_INFO,
-  CLEAR_USER_INFO,
+  CLEAR_USER_AUTH_INFO,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
 } from './types';
@@ -106,7 +106,7 @@ const fbLogout = () => {
         .auth()
         .signOut()
         .then(() => {
-          dispatch({ type: CLEAR_USER_INFO });
+          dispatch({ type: CLEAR_USER_AUTH_INFO });
           // Clear USERDBINFO
           // Clear GAMESINFO
           // Clear BEERSINFO
