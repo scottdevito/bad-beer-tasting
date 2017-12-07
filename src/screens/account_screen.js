@@ -10,9 +10,11 @@ class AccountScreen extends Component {
   render() {
     return (
       <div className="account-screen">
-        <h2>Email address</h2>
-        <h3>Your Beer Name</h3>
-        <h4>Your Beer description</h4>
+        <div className="account-info">
+          <h2>Email address</h2>
+          <h3>Your Beer Name</h3>
+          <h4>Your Beer description</h4>
+        </div>
 
         <RaisedButton
           label="Logout"
