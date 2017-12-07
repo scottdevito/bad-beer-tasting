@@ -8,6 +8,9 @@ import {
   LOGIN_FAIL,
   SET_USER_AUTH_INFO,
   CLEAR_USER_AUTH_INFO,
+  CLEAR_GAME_INFO,
+  CLEAR_BEERS_INFO,
+  CLEAR_USER_DB_INFO,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
 } from './types';
@@ -107,9 +110,9 @@ const fbLogout = () => {
         .signOut()
         .then(() => {
           dispatch({ type: CLEAR_USER_AUTH_INFO });
-          // Clear USERDBINFO
-          // Clear GAMESINFO
-          // Clear BEERSINFO
+          dispatch({ type: CLEAR_USER_DB_INFO });
+          dispatch({ type: CLEAR_GAME_INFO });
+          dispatch({ type: CLEAR_BEERS_INFO });
           dispatch({ type: LOGOUT_SUCCESS });
           resolve();
         })
