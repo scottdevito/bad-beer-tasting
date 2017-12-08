@@ -8,9 +8,9 @@ export default function(state = {}, action) {
         drinkPhase: action.payload[1],
         votePhase: action.payload[2],
       };
-      return Object.assign({}, state, { gameInfo: gameInfoObj });
+      return Object.assign({}, state, { ...gameInfoObj });
     case CLEAR_GAME_INFO:
-      return Object.assign({}, state, { gameInfo: {} });
+      return Object.assign(...state, {});
     default:
       return state;
   }
