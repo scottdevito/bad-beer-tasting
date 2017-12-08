@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import firebase from 'firebase';
 
-import AppBarNav from './components/app_bar_nav';
+import AppBarNavContainer from './containers/app_bar_nav.C';
 import LoginRegisterScreenContainer from './containers/login_register_screen.C';
 import MainScreen from './screens/main_screen';
 import ResultsScreen from './screens/results_screen';
@@ -30,7 +30,7 @@ class App extends Component {
       <Router>
         <MuiThemeProvider>
           <div className="app">
-            <AppBarNav />
+            <AppBarNavContainer />
 
             <Route exact path="/" component={LoginRegisterScreenContainer} />
             <Route path="/main" component={MainScreen} />

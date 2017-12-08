@@ -1,14 +1,12 @@
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
-  FETCH_USER_DB_INFO,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   SET_USER_AUTH_INFO,
   CLEAR_USER_AUTH_INFO,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
-  CLEAR_USER_DB_INFO,
 } from '../actions/types';
 
 export default function(state = {}, action) {
@@ -29,10 +27,6 @@ export default function(state = {}, action) {
       return Object.assign({}, state, { auth: action.payload });
     case CLEAR_USER_AUTH_INFO:
       return Object.assign({}, state, { auth: {} });
-    case FETCH_USER_DB_INFO:
-      return Object.assign({}, state, { userDbInfo: action.payload });
-    case CLEAR_USER_DB_INFO:
-      return Object.assign({}, state, { userDbInfo: {} });
     default:
       return state;
   }

@@ -15,7 +15,7 @@ class AppBarNav extends Component {
         iconElementRight={
           <FlatButton
             className="rules-explained-button"
-            label={<Link to="/account">Username</Link>}
+            label={<Link to="/account">{this.props.userDbInfo.email}</Link>}
           />
         }
       />

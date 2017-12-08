@@ -7,13 +7,19 @@ class AccountScreen extends Component {
       console.log(error);
     });
   };
+
+  displayBeerInfo = () => {
+    // If there is beer info set, display it
+    // If there isn't beer info set, display "Add your beer button"
+  };
+
   render() {
     return (
       <div className="account-screen">
         <div className="account-info">
           <h2>Email address</h2>
-          <h3>Your Beer Name</h3>
-          <h4>Your Beer description</h4>
+          <h3>Your Beer Info:</h3>
+          {this.displayBeerInfo()}
         </div>
 
         <RaisedButton
