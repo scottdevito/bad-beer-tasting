@@ -1,3 +1,3 @@
-import { testAction } from './test.A';
+import { fbRegister, fbLogin, fbLogout, fbLoginPersist } from './auth.A';
 
-export { testAction };
+export { fbRegister, fbLogin, fbLogout, fbLoginPersist };

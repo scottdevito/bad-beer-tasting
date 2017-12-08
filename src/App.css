@@ -166,3 +166,19 @@ a {
   align-items: center;
   height: 8em;
 }
+
+/* Account Screen */
+.account-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 50vh;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

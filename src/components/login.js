@@ -1,29 +1,83 @@
-import React from 'react';
+import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 
-const Login = () => {
-  return (
-    <div className="login">
-      <TextField floatingLabelText="Username" />
-      <TextField floatingLabelText="Password" type="password" />
-      <Link to="/main">
-        <RaisedButton className="login-button" label="Login" primary={true} />
-      </Link>
+class Login extends Component {
+  constructor(props) {
+    super(props);
 
-      <p>or</p>
+    this.state = {
+      email: '',
+      password: '',
+      error: '',
+    };
+  }
 
-      <RaisedButton
-        className="facebook-login-button"
-        href="https://github.com/callemall/material-ui"
-        target="_blank"
-        label="Login With Facebook"
-        backgroundColor="#3b5998"
-        labelColor="#ffffff"
-      />
-    </div>
-  );
-};
+  onLoginInputChange = (event, fieldId) => {
+    let value = event.target.value;
+
+    this.setState((prevState, props) => {
+      return { [fieldId]: value };
+    });
+  };
+
+  onLoginSubmit = () => {
+    // Clear error message
+    this.setState((prevState, props) => {
+      return { error: '' };
+    });
+
+    // Fire fbLogin action
+    // Display error if there is one
+    this.props.fbLogin(this.state).catch(error => {
+      this.setState((prevState, props) => {
+        return { error: error.code };
+      });
+    });
+  };
+
+  render() {
+    return (
+      <div className="login">
+        <TextField
+          floatingLabelText="Email"
+          onChange={event => {
+            this.onLoginInputChange(event, 'email');
+          }}
+          errorText={this.state.error ? this.state.error : ''}
+        />
+        <TextField
+          floatingLabelText="Password"
+          type="password"
+          onChange={event => {
+            this.onLoginInputChange(event, 'password');
+          }}
+        />
+        {/* <Link to="/main"> */}
+        <RaisedButton
+          className="login-button"
+          label="Login"
+          primary={true}
+          onClick={() => {
+            this.onLoginSubmit();
+          }}
+        />
+        {/* </Link> */}
+
+        <p>or</p>
+
+        <RaisedButton
+          className="facebook-login-button"
+          href="https://github.com/callemall/material-ui"
+          target="_blank"
+          label="Login With Facebook"
+          backgroundColor="#3b5998"
+          labelColor="#ffffff"
+        />
+      </div>
+    );
+  }
+}
 
 export default Login;

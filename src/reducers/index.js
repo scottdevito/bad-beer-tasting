@@ -1,16 +1,14 @@
-// import { combineReducers } from 'redux';
-// import TestReducer from './test.R';
-
-// const rootReducer = combineReducers({
-//   test: TestReducer,
-// });
-
-// export default rootReducer;
-
 import { combineReducers } from 'redux';
+import AuthReducer from './auth.R';
+import BeerInfoReducer from './beer_info.R';
+import GameInfoReducer from './game_info.R';
+import UserDbInfoReducer from './user_db_info.R';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state,
+  userAuthInfo: AuthReducer,
+  userDbInfo: UserDbInfoReducer,
+  beers: BeerInfoReducer,
+  gameInfo: GameInfoReducer,
 });
 
 export default rootReducer;

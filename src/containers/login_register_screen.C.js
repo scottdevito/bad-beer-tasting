@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import LoginRegisterScreen from '../screens/login_register_screen';
-import { testAction } from '../actions/index';
+import { fbRegister, fbLogin } from '../actions/index';
 
 const mapStateToProps = state => {
   return {};
 };
 
 const mapDispatchToProps = {
-  testAction,
+  fbRegister,
+  fbLogin,
 };
 
 const LoginRegisterScreenContainer = connect(
