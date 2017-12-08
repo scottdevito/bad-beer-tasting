@@ -12,7 +12,7 @@ import {
 export default function(state = {}, action) {
   switch (action.type) {
     case REGISTER_SUCCESS:
-      return Object.assign({}, state, { auth: action.payload, loggedIn: true });
+      return Object.assign({}, state, { ...action.payload, loggedIn: true });
     case REGISTER_FAIL:
       return Object.assign({}, state, { loggedIn: false });
     case LOGIN_SUCCESS:
@@ -24,9 +24,9 @@ export default function(state = {}, action) {
     case LOGOUT_FAIL:
       return Object.assign({}, state, { loggedIn: true });
     case SET_USER_AUTH_INFO:
-      return Object.assign({}, state, { auth: action.payload });
+      return Object.assign({}, state, { ...action.payload });
     case CLEAR_USER_AUTH_INFO:
-      return Object.assign({}, state, { auth: {} });
+      return Object.assign({}, ...state, {});
     default:
       return state;
   }
