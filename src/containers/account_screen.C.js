@@ -4,6 +4,7 @@ import { fbLogout } from '../actions/index';
 
 const mapStateToProps = state => {
   return {
+    userAuthInfo: state.userAuthInfo,
     userDbInfo: state.userDbInfo,
     beers: state.beers,
   };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
+import { Link } from 'react-router-dom';
 
 class AccountScreen extends Component {
   onLogoutSubmit = () => {
@@ -12,7 +13,8 @@ class AccountScreen extends Component {
   // If there is beer info set, display it
   // If there isn't beer info set, display "Add your beer button"
   displayBeerInfo = () => {
-    let userBeer = this.props.beers.filter(beer => {
+    let { beers } = this.props;
+    let userBeer = (beers || []).filter(beer => {
       // eslint-disable-next-line
       return beer.beerId == this.props.userDbInfo.beerId;
     });
@@ -26,8 +28,25 @@ class AccountScreen extends Component {
           </div>
         </Card>
       );
-    } else {
-      return <RaisedButton label="Add Your Beer" primary={true} />;
+    }
+    return (
+      <Link to="/your-beer">
+        <RaisedButton label="Add Your Beer" primary={true} />
+      </Link>
+    );
+  };
+
+  displayLogoutButton = () => {
+    if (this.props.userAuthInfo.loggedIn) {
+      return (
+        <RaisedButton
+          label="Logout"
+          secondary={true}
+          onClick={() => {
+            this.onLogoutSubmit();
+          }}
+        />
+      );
     }
   };
 
@@ -40,13 +59,7 @@ class AccountScreen extends Component {
           {this.displayBeerInfo()}
         </div>
 
-        <RaisedButton
-          label="Logout"
-          secondary={true}
-          onClick={() => {
-            this.onLogoutSubmit();
-          }}
-        />
+        {this.displayLogoutButton()}
       </div>
     );
   }
