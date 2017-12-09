@@ -9,7 +9,7 @@ import {
   SET_USER_AUTH_INFO,
   CLEAR_USER_AUTH_INFO,
   CLEAR_GAME_INFO,
-  CLEAR_BEERS_INFO,
+  // CLEAR_BEERS_INFO,
   CLEAR_USER_DB_INFO,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
@@ -112,7 +112,9 @@ const fbLogout = () => {
           dispatch({ type: CLEAR_USER_AUTH_INFO });
           dispatch({ type: CLEAR_USER_DB_INFO });
           dispatch({ type: CLEAR_GAME_INFO });
-          dispatch({ type: CLEAR_BEERS_INFO });
+          // Don't clear beers so arrays that call array functions don't become undefined
+          // displayBeerInfo in AccountScreen
+          // dispatch({ type: CLEAR_BEERS_INFO });
           dispatch({ type: LOGOUT_SUCCESS });
           resolve();
         })
