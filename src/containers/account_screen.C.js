@@ -3,7 +3,10 @@ import AccountScreen from '../screens/account_screen';
 import { fbLogout } from '../actions/index';
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    userDbInfo: state.userDbInfo,
+    beers: state.beers,
+  };
 };
 
 const mapDispatchToProps = {

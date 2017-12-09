@@ -173,10 +173,18 @@ a {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 50vh;
+  height: 55vh;
 }
 
 .account-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3em;
+}
+
+.your-beer-preview {
   display: flex;
   flex-direction: column;
   justify-content: center;
