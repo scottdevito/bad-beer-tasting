@@ -33,38 +33,38 @@ class YourBeerScreen extends Component {
   render() {
     return (
       <div className="your-beer-screen">
-        <h2>Add Your Beer</h2>
-        <TextField
-          hintText="It better be trash"
-          floatingLabelText="Enter the name of your beer"
-          onChange={event => {
-            this.onAddBeerInputChange(event, 'myBeer');
-          }}
-          value={this.state.myBeer}
-        />
-
-        <TextField
-          floatingLabelText="Enter a short description"
-          onChange={event => {
-            this.onAddBeerInputChange(event, 'beerDescription');
-          }}
-          value={this.state.beerDescription}
-        />
-
-        <RaisedButton
-          className="your-beer-submit"
-          label="Submit"
-          primary={true}
-        />
-
         {this.props.userDbInfo.beerId > 0 ? (
           <div>
-            <h3>Your Current Beer Info:</h3>
+            <h3>Your Submitted Beer:</h3>
 
             {this.displayBeerInfo()}
           </div>
         ) : (
-          ''
+          <div className="your-beer-screen">
+            <h2>Add Your Beer</h2>
+            <TextField
+              hintText="It better be trash"
+              floatingLabelText="Enter the name of your beer"
+              onChange={event => {
+                this.onAddBeerInputChange(event, 'myBeer');
+              }}
+              value={this.state.myBeer}
+            />
+
+            <TextField
+              floatingLabelText="Enter a short description"
+              onChange={event => {
+                this.onAddBeerInputChange(event, 'beerDescription');
+              }}
+              value={this.state.beerDescription}
+            />
+
+            <RaisedButton
+              className="your-beer-submit"
+              label="Submit"
+              primary={true}
+            />
+          </div>
         )}
       </div>
     );
