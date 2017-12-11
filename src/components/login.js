@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 // import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Login extends Component {
       email: '',
       password: '',
       error: '',
+      redirectToReferrer: 'false',
     };
   }
 
@@ -29,15 +31,32 @@ class Login extends Component {
     });
 
     // Fire fbLogin action
+    // If login success, set redirectToReferrer to true
     // Display error if there is one
-    this.props.fbLogin(this.state).catch(error => {
-      this.setState((prevState, props) => {
-        return { error: error.code };
+    this.props
+      .fbLogin(this.state)
+      .then(() => {
+        this.setState((prevState, props) => {
+          return { redirectToReferrer: true };
+        });
+      })
+      .catch(error => {
+        this.setState((prevState, props) => {
+          return { error: error.code };
+        });
       });
-    });
   };
 
   render() {
+    const { redirectToReferrer } = this.state;
+    const { from } = {
+      from: { pathname: '/main' },
+    };
+
+    if (redirectToReferrer === true) {
+      return <Redirect to={from} />;
+    }
+
     return (
       <div className="login">
         <TextField
