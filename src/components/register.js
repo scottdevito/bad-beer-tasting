@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-// import { Link } from 'react-router-dom';
 
 class Register extends Component {
   constructor(props) {
@@ -56,7 +55,6 @@ class Register extends Component {
             this.onRegisterInputChange(event, 'password');
           }}
         />
-        {/* <Link to="/main"> */}
         <RaisedButton
           className="register-button"
           label="Register"
@@ -64,18 +62,6 @@ class Register extends Component {
           onClick={() => {
             this.onRegisterSubmit();
           }}
-        />
-        {/* </Link> */}
-
-        <p>or</p>
-
-        <RaisedButton
-          className="facebook-login-button"
-          href="https://github.com/callemall/material-ui"
-          target="_blank"
-          label="Login With Facebook"
-          backgroundColor="#3b5998"
-          labelColor="#ffffff"
         />
       </div>
     );
