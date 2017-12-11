@@ -53,7 +53,7 @@ class LoginRegisterScreen extends Component {
             index={this.state.slideIndex}
             onChangeIndex={this.handleChange}
           >
-            <div>
+            <div style={styles.slide}>
               <Login fbLogin={this.props.fbLogin} />
             </div>
             <div style={styles.slide}>
