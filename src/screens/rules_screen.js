@@ -28,6 +28,15 @@ class RulesScreen extends Component {
 
     return (
       <div style={{ margin: '12px 0' }}>
+        {step > 0 && (
+          <FlatButton
+            label="Previous"
+            disabled={stepIndex === 0}
+            disableTouchRipple={true}
+            disableFocusRipple={true}
+            onClick={this.handlePrev}
+          />
+        )}
         {step > 1 ? (
           <Link to="/main">
             <RaisedButton
@@ -46,16 +55,6 @@ class RulesScreen extends Component {
             primary={true}
             onClick={this.handleNext}
             style={{ marginRight: 12 }}
-          />
-        )}
-
-        {step > 0 && (
-          <FlatButton
-            label="Previous"
-            disabled={stepIndex === 0}
-            disableTouchRipple={true}
-            disableFocusRipple={true}
-            onClick={this.handlePrev}
           />
         )}
       </div>
@@ -88,8 +87,8 @@ class RulesScreen extends Component {
             </StepLabel>
             <StepContent>
               <p>
-                Vote on which beer you thought tasted the worst and which beer
-                you thought tasted the best.
+                Once the add beer phase is over and you've tasted all the beers,
+                you'll be able to vote on the best and worst beer.
               </p>
               <img
                 src="https://s3.amazonaws.com/bad-beer-tasting/Worst+Beer+Ballot.svg"
@@ -105,9 +104,8 @@ class RulesScreen extends Component {
             </StepLabel>
             <StepContent>
               <p>
-                When the add beer phase is over, you'll have time to vote on
-                which beers you think were the most vile. Cast your vote and
-                wait to see the results!
+                When everyone has finished voting, head over to the results tab
+                to see the final results.
               </p>
               <img
                 src="https://s3.amazonaws.com/bad-beer-tasting/Bad+Beer+Results+Graph.svg"
