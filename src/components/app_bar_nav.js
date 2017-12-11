@@ -11,7 +11,7 @@ class AppBarNav extends Component {
     return (
       <AppBar
         title="Bad Beer Tasting"
-        iconElementLeft={<AppDrawer />}
+        iconElementLeft={<AppDrawer userAuthInfo={this.props.userAuthInfo} />}
         iconElementRight={
           <FlatButton
             className="rules-explained-button"
