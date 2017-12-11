@@ -12,6 +12,7 @@ import RulesScreen from './screens/rules_screen';
 import YourBeerScreen from './screens/your_beer_screen';
 import VoteScreen from './screens/vote_screen';
 import AccountScreenContainer from './containers/account_screen.C';
+import PrivateRouteContainer from './containers/private_route.C';
 
 class App extends Component {
   componentWillMount() {
@@ -33,12 +34,18 @@ class App extends Component {
             <AppBarNavContainer />
 
             <Route exact path="/" component={LoginRegisterScreenContainer} />
-            <Route path="/main" component={MainScreen} />
-            <Route path="/your-beer" component={YourBeerScreen} />
-            <Route path="/vote" component={VoteScreen} />
-            <Route path="/results" component={ResultsScreen} />
-            <Route path="/rules" component={RulesScreen} />
-            <Route path="/account" component={AccountScreenContainer} />
+            <PrivateRouteContainer path="/main" component={MainScreen} />
+            <PrivateRouteContainer
+              path="/your-beer"
+              component={YourBeerScreen}
+            />
+            <PrivateRouteContainer path="/vote" component={VoteScreen} />
+            <PrivateRouteContainer path="/results" component={ResultsScreen} />
+            <PrivateRouteContainer path="/rules" component={RulesScreen} />
+            <PrivateRouteContainer
+              path="/account"
+              component={AccountScreenContainer}
+            />
           </div>
         </MuiThemeProvider>
       </Router>
