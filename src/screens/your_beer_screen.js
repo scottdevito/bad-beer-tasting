@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import YourBeerPreview from '../components/your_beer_preview';
+
 class YourBeerScreen extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +20,14 @@ class YourBeerScreen extends Component {
     this.setState((prevState, props) => {
       return { [fieldId]: value };
     });
+  };
+
+  displayBeerInfo = () => {
+    let { beers, userDbInfo } = this.props;
+
+    if (beers) {
+      return <YourBeerPreview userDbInfo={userDbInfo} beers={beers} />;
+    }
   };
 
   render() {
@@ -46,6 +56,16 @@ class YourBeerScreen extends Component {
           label="Submit"
           primary={true}
         />
+
+        {this.props.userDbInfo.beerId > 0 ? (
+          <div>
+            <h3>Your Current Beer Info:</h3>
+
+            {this.displayBeerInfo()}
+          </div>
+        ) : (
+          ''
+        )}
       </div>
     );
   }

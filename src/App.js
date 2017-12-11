@@ -9,7 +9,7 @@ import LoginRegisterScreenContainer from './containers/login_register_screen.C';
 import MainScreen from './screens/main_screen';
 import ResultsScreen from './screens/results_screen';
 import RulesScreen from './screens/rules_screen';
-import YourBeerScreen from './screens/your_beer_screen';
+import YourBeerScreenContainer from './containers/your_beer_screen.C';
 import VoteScreen from './screens/vote_screen';
 import AccountScreenContainer from './containers/account_screen.C';
 import PrivateRouteContainer from './containers/private_route.C';
@@ -37,7 +37,7 @@ class App extends Component {
             <PrivateRouteContainer path="/main" component={MainScreen} />
             <PrivateRouteContainer
               path="/your-beer"
-              component={YourBeerScreen}
+              component={YourBeerScreenContainer}
             />
             <PrivateRouteContainer path="/vote" component={VoteScreen} />
             <PrivateRouteContainer path="/results" component={ResultsScreen} />

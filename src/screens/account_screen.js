@@ -14,13 +14,10 @@ class AccountScreen extends Component {
   // If there is beer info set, display it
   // If there isn't beer info set, display "Add your beer button"
   displayBeerInfo = () => {
-    if (this.props.beers.length > 0) {
-      return (
-        <YourBeerPreview
-          userDbInfo={this.props.userDbInfo}
-          beers={this.props.beers}
-        />
-      );
+    let { beers, userDbInfo } = this.props;
+
+    if (beers) {
+      return <YourBeerPreview userDbInfo={userDbInfo} beers={beers} />;
     }
 
     return (
