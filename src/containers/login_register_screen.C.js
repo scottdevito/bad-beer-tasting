@@ -3,7 +3,9 @@ import LoginRegisterScreen from '../screens/login_register_screen';
 import { fbRegister, fbLogin } from '../actions/index';
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    userAuthInfo: state.userAuthInfo,
+  };
 };
 
 const mapDispatchToProps = {

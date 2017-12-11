@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
+import { Redirect } from 'react-router-dom';
 
 import Login from '../components/login';
 import Register from '../components/register';
@@ -32,6 +33,9 @@ class LoginRegisterScreen extends Component {
   };
 
   render() {
+    if (this.props.userAuthInfo.loggedIn) {
+      return <Redirect to="/main" />;
+    }
     return (
       <div className="app-title">
         <h1 className="hide-for-mobile">Bad Beer Tasting</h1>
@@ -49,7 +53,7 @@ class LoginRegisterScreen extends Component {
             index={this.state.slideIndex}
             onChangeIndex={this.handleChange}
           >
-            <div>
+            <div style={styles.slide}>
               <Login fbLogin={this.props.fbLogin} />
             </div>
             <div style={styles.slide}>

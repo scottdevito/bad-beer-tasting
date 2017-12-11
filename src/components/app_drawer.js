@@ -29,12 +29,16 @@ class AppDrawer extends Component {
   render() {
     return (
       <div>
-        <Menu
-          className="nav-menu"
-          onClick={this.handleToggle}
-          style={iconStyle}
-          color={white}
-        />
+        {this.props.userAuthInfo.loggedIn === true ? (
+          <Menu
+            className="nav-menu"
+            onClick={this.handleToggle}
+            style={iconStyle}
+            color={white}
+          />
+        ) : (
+          ''
+        )}
         <Drawer
           docked={false}
           width={200}

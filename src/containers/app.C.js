@@ -3,7 +3,7 @@ import App from '../App';
 import { fbLoginPersist, fbLogout } from '../actions/index';
 
 const mapStateToProps = state => {
-  return {};
+  return { userAuthInfo: state.userAuthInfo };
 };
 
 const mapDispatchToProps = {
