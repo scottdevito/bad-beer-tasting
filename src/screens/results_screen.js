@@ -10,12 +10,20 @@ import {
 } from 'material-ui/Table';
 
 class ResultsScreen extends Component {
-  renderTableBody = () => {
+  state = {
+    filter: 'worst',
+  };
+
+  renderTableBody = filter => {
     let { beers } = this.props;
     let newBeersArray = beers.slice(0);
 
     let sortedBeersArray = newBeersArray.sort(function(a, b) {
-      return parseFloat(b.worstVotes) - parseFloat(a.worstVotes);
+      if (filter === 'worst') {
+        return parseFloat(b.worstVotes) - parseFloat(a.worstVotes);
+      } else {
+        return parseFloat(b.bestVotes) - parseFloat(a.bestVotes);
+      }
     });
 
     return (sortedBeersArray || []).map(beer => {
@@ -31,6 +39,12 @@ class ResultsScreen extends Component {
     });
   };
 
+  changeFilter = filterChoice => {
+    this.setState((prevState, props) => {
+      return { filter: filterChoice };
+    });
+  };
+
   render() {
     return (
       <div>
@@ -41,15 +55,21 @@ class ResultsScreen extends Component {
                 Beer Name
               </TableHeaderColumn>
               <TableHeaderColumn>
-                <FlatButton label="Worst" onClick={() => this.sortByWorst()} />
+                <FlatButton
+                  label="Worst"
+                  onClick={() => this.changeFilter('worst')}
+                />
               </TableHeaderColumn>
               <TableHeaderColumn>
-                <FlatButton label="Best" onClick={() => this.sortByWorst()} />
+                <FlatButton
+                  label="Best"
+                  onClick={() => this.changeFilter('best')}
+                />
               </TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody displayRowCheckbox={false}>
-            {this.renderTableBody()}
+            {this.renderTableBody(this.state.filter)}
           </TableBody>
         </Table>
       </div>
