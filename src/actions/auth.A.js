@@ -55,7 +55,7 @@ const createNewUser = ({ email, uid }) => {
       .doc(uid)
       .set({
         email: email.toLowerCase(),
-        beerId: '',
+        beerId: null,
         admin: false,
         joinDate: new Date()
           .toJSON()

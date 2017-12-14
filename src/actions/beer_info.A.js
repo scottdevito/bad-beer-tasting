@@ -20,19 +20,26 @@ const fetchBeerInfo = () => {
 };
 
 // Add a new beer document in Firestore
-const addNewBeer = ({ name, description }, email) => {
+const addNewBeer = ({ name, description }, { email, uid }) => {
+  let newBeeruuid = uuidv4();
   return dispatch => {
-    console.log(name, description, email);
-
     db
       .collection('beers')
       .add({
-        beerId: '',
+        beerId: newBeeruuid,
         name,
         description,
         bestVotes: 0,
         worstVotes: 0,
         owner: email,
+      })
+      .then(function() {
+        db
+          .collection('users')
+          .doc(uid)
+          .update({
+            beerId: newBeeruuid,
+          });
       })
       .then(function(userDocRef) {
         dispatch({ type: ADD_NEW_BEER_SUCCESS });
@@ -42,6 +49,15 @@ const addNewBeer = ({ name, description }, email) => {
         console.error('Error adding new beer: ', error);
       });
   };
+};
+
+const uuidv4 = () => {
+  return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+    (
+      c ^
+      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+    ).toString(16)
+  );
 };
 
 export { fetchBeerInfo, addNewBeer };

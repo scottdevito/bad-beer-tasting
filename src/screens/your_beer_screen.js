@@ -19,7 +19,7 @@ class YourBeerScreen extends Component {
   };
 
   onAddBeerSubmit = () => {
-    this.props.addNewBeer(this.state, this.props.userDbInfo.email);
+    this.props.addNewBeer(this.state, this.props.userDbInfo);
   };
 
   displayBeerInfo = () => {
@@ -33,7 +33,7 @@ class YourBeerScreen extends Component {
   render() {
     return (
       <div className="your-beer-screen">
-        {this.props.userDbInfo.beerId > 0 ? (
+        {this.props.userDbInfo.beerId != null ? (
           <div>
             <h3>Your Submitted Beer:</h3>
 
