@@ -5,22 +5,6 @@ import { Tabs, Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import FlatButton from 'material-ui/FlatButton';
 
-const data = [
-  { beerName: 'Beer 1', username: 'some user 2', id: 0 },
-  { beerName: 'Beer 2', username: 'some user 2', id: 1 },
-  { beerName: 'Beer 3', username: 'some user 2', id: 2 },
-  {
-    beerName: 'Beer 4 a sdflkj',
-    username: 'some user 2',
-    id: 3,
-  },
-  { beerName: 'Beer 5', username: 'some user 2', id: 4 },
-  { beerName: 'Beer 6', username: 'some user 2', id: 5 },
-  { beerName: 'Beer 7', username: 'some user 2', id: 6 },
-  { beerName: 'Beer 8', username: 'some user 2', id: 7 },
-  { beerName: 'Beer 9', username: 'some user 2', id: 8 },
-];
-
 class VoteScreen extends Component {
   constructor(props) {
     super(props);
@@ -36,24 +20,23 @@ class VoteScreen extends Component {
     };
   }
 
-  renderBeerList = data => {
+  renderBeerList = beers => {
     let { selectedBeerIds } = this.state;
 
     // Hide button after the user has voted for a beer
-    let filteredData = data.filter(beer => {
+    let filteredData = beers.filter(beer => {
       return (
-        beer.beerName !== selectedBeerIds[0] &&
-        beer.beerName !== selectedBeerIds[1]
+        beer.name !== selectedBeerIds[0] && beer.name !== selectedBeerIds[1]
       );
     });
 
     return filteredData.map(item => {
       return (
-        <div key={item.id}>
+        <div key={item.beerId}>
           <Divider />
           <ListItem
-            onClick={() => this.selectBeer(item.beerName)}
-            primaryText={item.beerName}
+            onClick={() => this.selectBeer(item.name)}
+            primaryText={item.name}
           />
           <Divider />
         </div>
@@ -140,7 +123,7 @@ class VoteScreen extends Component {
           </SwipeableViews>
         </div>
         {this.renderSubmitButton()}
-        <List>{this.renderBeerList(data)}</List>
+        <List>{this.renderBeerList(this.props.beers)}</List>
       </div>
     );
   }
