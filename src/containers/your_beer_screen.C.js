@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import YourBeerScreen from '../screens/your_beer_screen';
+import { addNewBeer } from '../actions/index';
 
 const mapStateToProps = state => {
   return {
@@ -8,7 +9,9 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  addNewBeer,
+};
 
 const YourBeerScreenContainer = connect(mapStateToProps, mapDispatchToProps)(
   YourBeerScreen

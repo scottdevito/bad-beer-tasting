@@ -5,14 +5,10 @@ import RaisedButton from 'material-ui/RaisedButton';
 import YourBeerPreview from '../components/your_beer_preview';
 
 class YourBeerScreen extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      myBeer: '',
-      beerDescription: '',
-    };
-  }
+  state = {
+    name: '',
+    description: '',
+  };
 
   onAddBeerInputChange = (event, fieldId) => {
     let value = event.target.value;
@@ -20,6 +16,10 @@ class YourBeerScreen extends Component {
     this.setState((prevState, props) => {
       return { [fieldId]: value };
     });
+  };
+
+  onAddBeerSubmit = () => {
+    this.props.addNewBeer(this.state, this.props.userDbInfo.email);
   };
 
   displayBeerInfo = () => {
@@ -46,23 +46,24 @@ class YourBeerScreen extends Component {
               hintText="It better be trash"
               floatingLabelText="Enter the name of your beer"
               onChange={event => {
-                this.onAddBeerInputChange(event, 'myBeer');
+                this.onAddBeerInputChange(event, 'name');
               }}
-              value={this.state.myBeer}
+              value={this.state.name}
             />
 
             <TextField
               floatingLabelText="Enter a short description"
               onChange={event => {
-                this.onAddBeerInputChange(event, 'beerDescription');
+                this.onAddBeerInputChange(event, 'description');
               }}
-              value={this.state.beerDescription}
+              value={this.state.description}
             />
 
             <RaisedButton
               className="your-beer-submit"
               label="Submit"
               primary={true}
+              onClick={() => this.onAddBeerSubmit()}
             />
           </div>
         )}
