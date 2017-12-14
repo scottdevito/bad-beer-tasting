@@ -13,7 +13,7 @@ import Poll from 'material-ui/svg-icons/social/poll';
 const iconStyle = {
   marginTop: 10,
   marginRight: 0,
-  marginLeft: -4,
+  marginLeft: 0,
 };
 
 class AppDrawer extends Component {
