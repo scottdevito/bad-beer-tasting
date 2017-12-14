@@ -21,7 +21,7 @@ class VoteScreen extends Component {
   }
 
   renderBeerList = beers => {
-    let { selectedBeerIds } = this.state;
+    let { selectedBeerIds, confirmedSubmit } = this.state;
 
     // Hide button after the user has voted for a beer
     let filteredData = beers.filter(beer => {
@@ -37,6 +37,7 @@ class VoteScreen extends Component {
           <ListItem
             onClick={() => this.selectBeer(item.name)}
             primaryText={item.name}
+            disabled={confirmedSubmit}
           />
           <Divider />
         </div>
