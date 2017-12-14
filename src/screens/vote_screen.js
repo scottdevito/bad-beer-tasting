@@ -29,6 +29,8 @@ class VoteScreen extends Component {
       selectedBeerIds: {
         0: '',
         1: '',
+        submit: false,
+        confirmedSubmit: false,
       },
       slideIndex: 0,
     };
@@ -79,18 +81,42 @@ class VoteScreen extends Component {
   };
 
   renderSubmitButton = () => {
-    let { selectedBeerIds } = this.state;
+    let { selectedBeerIds, confirmedSubmit } = this.state;
 
     if (selectedBeerIds[0] && selectedBeerIds[1]) {
-      return (
+      return this.state.submit ? (
         <FlatButton
-          label="Submit Vote"
+          label={confirmedSubmit ? 'Submitting Vote...' : 'Confirm Submit'}
           fullWidth={true}
           backgroundColor="#80e27e"
           hoverColor="#4caf50"
+          onClick={() => this.submitFinalVote()}
+          disabled={confirmedSubmit}
+        />
+      ) : (
+        <FlatButton
+          label="Submit Vote"
+          fullWidth={true}
+          backgroundColor="#62efff"
+          hoverColor="#00bcd4"
+          onClick={() => this.confirmSubmit()}
         />
       );
     }
+  };
+
+  confirmSubmit = () => {
+    this.setState((prevState, props) => {
+      return { submit: true };
+    });
+  };
+
+  submitFinalVote = () => {
+    console.log('Dispatch action: this.props.submitVote()');
+
+    this.setState((prevState, props) => {
+      return { confirmedSubmit: !prevState.confirmedSubmit };
+    });
   };
 
   render() {
