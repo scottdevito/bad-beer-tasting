@@ -14,6 +14,8 @@ export const CLEAR_USER_DB_INFO = 'CLEAR_USER_DB_INFO';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_FAIL = 'LOGOUT_FAIL';
 
-// Game Data
+// Beer Data
 export const FETCH_BEER_INFO = 'FETCH_BEER_INFO';
 export const FETCH_GAME_INFO = 'FETCH_GAME_INFO';
+export const ADD_NEW_BEER_SUCCESS = 'ADD_NEW_BEER_SUCCESS';
+export const ADD_NEW_BEER_FAIL = 'ADD_NEW_BEER_FAIL';
