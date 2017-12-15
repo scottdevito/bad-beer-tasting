@@ -10,7 +10,7 @@ class VoteScreen extends Component {
     super(props);
 
     this.state = {
-      selectedBeerIds: {
+      selectedBeerNames: {
         0: '',
         1: '',
         submit: false,
@@ -21,12 +21,12 @@ class VoteScreen extends Component {
   }
 
   renderBeerList = beers => {
-    let { selectedBeerIds, confirmedSubmit } = this.state;
+    let { selectedBeerNames, confirmedSubmit } = this.state;
 
     // Hide button after the user has voted for a beer
     let filteredData = beers.filter(beer => {
       return (
-        beer.name !== selectedBeerIds[0] && beer.name !== selectedBeerIds[1]
+        beer.name !== selectedBeerNames[0] && beer.name !== selectedBeerNames[1]
       );
     });
 
@@ -35,7 +35,7 @@ class VoteScreen extends Component {
         <div key={item.beerId}>
           <Divider />
           <ListItem
-            onClick={() => this.selectBeer(item.name)}
+            onClick={() => this.selectBeer(item.name, item.beerId)}
             primaryText={item.name}
             disabled={confirmedSubmit}
           />
@@ -46,15 +46,19 @@ class VoteScreen extends Component {
   };
 
   // If the beer id already exists in the object, replace it
-  selectBeer = id => {
-    let { selectedBeerIds, slideIndex } = this.state;
+  selectBeer = (beerName, beerId) => {
+    let { selectedBeerNames, slideIndex } = this.state;
 
-    let newSelectedBeerIds = {};
+    let newSelectedBeerNames = {};
 
-    newSelectedBeerIds[slideIndex] = id;
+    newSelectedBeerNames[slideIndex] = beerName;
 
     this.setState({
-      selectedBeerIds: Object.assign({}, selectedBeerIds, newSelectedBeerIds),
+      selectedBeerNames: Object.assign(
+        {},
+        selectedBeerNames,
+        newSelectedBeerNames
+      ),
     });
   };
 
@@ -65,9 +69,9 @@ class VoteScreen extends Component {
   };
 
   renderSubmitButton = () => {
-    let { selectedBeerIds, confirmedSubmit } = this.state;
+    let { selectedBeerNames, confirmedSubmit } = this.state;
 
-    if (selectedBeerIds[0] && selectedBeerIds[1]) {
+    if (selectedBeerNames[0] && selectedBeerNames[1]) {
       return this.state.submit ? (
         <FlatButton
           label={confirmedSubmit ? 'Submitting Vote...' : 'Confirm Submit'}
@@ -116,10 +120,10 @@ class VoteScreen extends Component {
             onChangeIndex={this.handleSwipeChange}
           >
             <div className="vote-preview-container">
-              <h2>{this.state.selectedBeerIds[0]}</h2>
+              <h2>{this.state.selectedBeerNames[0]}</h2>
             </div>
             <div className="vote-preview-container">
-              <h2>{this.state.selectedBeerIds[1]}</h2>
+              <h2>{this.state.selectedBeerNames[1]}</h2>
             </div>
           </SwipeableViews>
         </div>
