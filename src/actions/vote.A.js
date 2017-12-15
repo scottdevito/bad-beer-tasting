@@ -1,9 +1,4 @@
-import {
-  VOTES_SUBMIT_SUCCESS,
-  VOTES_SUBMIT_FAIL,
-  VOTE_SUBMIT_SUCCESS,
-  VOTE_SUBMIT_FAIL,
-} from './types';
+import { VOTES_SUBMIT_SUCCESS, VOTES_SUBMIT_FAIL } from './types';
 import db from '../startup/db_init';
 
 // Add vote to worst beer and best beer vote counts
@@ -45,10 +40,10 @@ const submitVotes = ({ selectedBeerIds }, { uid }) => {
           });
       })
       .then(function(userDocRef) {
-        dispatch({ type: VOTE_SUBMIT_SUCCESS });
+        dispatch({ type: VOTES_SUBMIT_SUCCESS });
       })
       .catch(function(error) {
-        dispatch({ type: VOTE_SUBMIT_FAIL });
+        dispatch({ type: VOTES_SUBMIT_FAIL });
         console.error('Error submitting votes: ', error);
       });
   };
