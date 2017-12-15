@@ -5,6 +5,8 @@ import { Tabs, Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import FlatButton from 'material-ui/FlatButton';
 
+import UserSubmittedVotes from '../components/user_submitted_votes';
+
 class VoteScreen extends Component {
   constructor(props) {
     super(props);
@@ -118,7 +120,15 @@ class VoteScreen extends Component {
   };
 
   render() {
-    return (
+    let { worstVote, bestVote } = this.props.userDbInfo;
+
+    return worstVote !== '' && bestVote !== '' ? (
+      <UserSubmittedVotes
+        worstVote={worstVote}
+        bestVote={bestVote}
+        beers={this.props.beers}
+      />
+    ) : (
       <div className="vote-screen">
         <div className="vote-swipe">
           <Tabs onChange={this.handleSwipeChange} value={this.state.slideIndex}>
