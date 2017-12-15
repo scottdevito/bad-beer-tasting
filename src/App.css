@@ -141,6 +141,13 @@ a {
   height: 80vh;
 }
 
+.your-beer-screen-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .your-beer-submit {
   margin: 2em;
 }

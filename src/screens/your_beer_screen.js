@@ -67,10 +67,12 @@ class YourBeerScreen extends Component {
     return (
       <div className="your-beer-screen">
         {this.props.userDbInfo.beerId != null ? (
-          <div>
-            <h3>Your Submitted Beer:</h3>
+          <div className="your-beer-screen-header">
+            <h1>Your Submitted Beer:</h1>
 
             {this.displayBeerInfo()}
+
+            <h2>You're all set. Enjoy the shit beer!</h2>
           </div>
         ) : (
           <div className="your-beer-screen">
