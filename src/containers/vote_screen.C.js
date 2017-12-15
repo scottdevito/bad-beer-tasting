@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import VoteScreen from '../screens/vote_screen';
+import { submitVotes } from '../actions/index';
 
 const mapStateToProps = state => {
   return {
@@ -7,7 +8,9 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  submitVotes,
+};
 
 const VoteScreenContainer = connect(mapStateToProps, mapDispatchToProps)(
   VoteScreen

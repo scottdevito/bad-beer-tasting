@@ -13,9 +13,13 @@ class VoteScreen extends Component {
       selectedBeerNames: {
         0: '',
         1: '',
-        submit: false,
-        confirmedSubmit: false,
       },
+      selectedBeerIds: {
+        0: '',
+        1: '',
+      },
+      submit: false,
+      confirmedSubmit: false,
       slideIndex: 0,
     };
   }
@@ -47,11 +51,13 @@ class VoteScreen extends Component {
 
   // If the beer id already exists in the object, replace it
   selectBeer = (beerName, beerId) => {
-    let { selectedBeerNames, slideIndex } = this.state;
+    let { selectedBeerNames, selectedBeerIds, slideIndex } = this.state;
 
     let newSelectedBeerNames = {};
+    let newSelectedBeerIds = {};
 
     newSelectedBeerNames[slideIndex] = beerName;
+    newSelectedBeerIds[slideIndex] = beerId;
 
     this.setState({
       selectedBeerNames: Object.assign(
@@ -59,6 +65,10 @@ class VoteScreen extends Component {
         selectedBeerNames,
         newSelectedBeerNames
       ),
+    });
+
+    this.setState({
+      selectedBeerIds: Object.assign({}, selectedBeerIds, newSelectedBeerIds),
     });
   };
 
@@ -100,7 +110,7 @@ class VoteScreen extends Component {
   };
 
   submitFinalVote = () => {
-    console.log('Dispatch action: this.props.submitVote()');
+    this.props.submitVotes(this.state);
 
     this.setState((prevState, props) => {
       return { confirmedSubmit: !prevState.confirmedSubmit };
