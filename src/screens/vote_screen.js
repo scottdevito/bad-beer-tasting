@@ -110,7 +110,7 @@ class VoteScreen extends Component {
   };
 
   submitFinalVote = () => {
-    this.props.submitVotes(this.state);
+    this.props.submitVotes(this.state, this.props.userDbInfo);
 
     this.setState((prevState, props) => {
       return { confirmedSubmit: !prevState.confirmedSubmit };

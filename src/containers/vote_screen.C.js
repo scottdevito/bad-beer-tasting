@@ -5,6 +5,7 @@ import { submitVotes } from '../actions/index';
 const mapStateToProps = state => {
   return {
     beers: state.beers,
+    userDbInfo: state.userDbInfo,
   };
 };
 
