@@ -25,7 +25,8 @@ const addNewBeer = ({ name, description }, { email, uid }) => {
   return dispatch => {
     db
       .collection('beers')
-      .add({
+      .doc(newBeeruuid)
+      .set({
         beerId: newBeeruuid,
         name,
         description,
