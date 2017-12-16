@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, CardText } from 'material-ui/Card';
+import Paper from 'material-ui/Paper';
+
+const style = {
+  maxWidth: '60vw',
+  padding: 10,
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
+};
 
 class YourBeerPreview extends Component {
   displayBeerPreview = () => {
@@ -11,12 +19,10 @@ class YourBeerPreview extends Component {
 
     if (userBeer[0] !== undefined) {
       return (
-        <Card>
-          <div className="your-beer-preview">
-            <CardTitle title={userBeer[0].name} />
-            <CardText>{userBeer[0].description}</CardText>
-          </div>
-        </Card>
+        <Paper style={style} zDepth={2}>
+          <h2>{userBeer[0].name}</h2>
+          <h4 style={{ fontWeight: 400 }}>{userBeer[0].description}</h4>
+        </Paper>
       );
     }
   };
