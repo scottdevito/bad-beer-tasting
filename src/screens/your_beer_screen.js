@@ -72,7 +72,9 @@ class YourBeerScreen extends Component {
 
             {this.displayBeerInfo()}
 
-            <h2>You're all set. Enjoy the shit beer!</h2>
+            <h2 className="submit-confirm-message">
+              You're all set. Enjoy the shit beer!
+            </h2>
           </div>
         ) : (
           <div className="your-beer-screen">

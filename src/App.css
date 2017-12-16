@@ -148,6 +148,11 @@ a {
   height: 80vh;
 }
 
+.submit-confirm-message {
+  margin-left: 0.5em;
+  margin-right: 0.25em;
+}
+
 .your-beer-screen-header {
   display: flex;
   flex-direction: column;
