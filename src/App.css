@@ -182,7 +182,7 @@ a {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 55vh;
+  height: 90vh;
 }
 
 .account-info {
@@ -190,5 +190,4 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3em;
 }
