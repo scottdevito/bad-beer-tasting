@@ -21,11 +21,12 @@ import { fetchGameInfo } from './game_info.A';
 
 const fbRegister = ({ email, password }) => {
   return dispatch => {
+    let trimmedEmail = email.trim();
     return new Promise((resolve, reject) => {
       firebase
         .auth()
         // Creates a new user in the Firebase auth system
-        .createUserWithEmailAndPassword(email, password)
+        .createUserWithEmailAndPassword(trimmedEmail, password)
         .then(user => {
           // Creates a new user in the Firestore db, users collection
           dispatch(createNewUser(user));
@@ -54,7 +55,7 @@ const createNewUser = ({ email, uid }) => {
       .collection('users')
       .doc(uid)
       .set({
-        email: email.toLowerCase(),
+        email: email.toLowerCase().trim(),
         beerId: null,
         admin: false,
         joinDate: new Date()
@@ -78,9 +79,11 @@ const createNewUser = ({ email, uid }) => {
 const fbLogin = ({ email, password }) => {
   return dispatch => {
     return new Promise((resolve, reject) => {
+      let trimmedEmail = email.trim();
+
       firebase
         .auth()
-        .signInWithEmailAndPassword(email, password)
+        .signInWithEmailAndPassword(trimmedEmail, password)
         .then(user => {
           // Store user info in the store under auth variable
           dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
