@@ -196,3 +196,18 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+/* Beers List Screen */
+.beer-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.beers-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  word-wrap: break-word;
+}

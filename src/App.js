@@ -12,6 +12,7 @@ import RulesScreen from './screens/rules_screen';
 import YourBeerScreenContainer from './containers/your_beer_screen.C';
 import VoteScreenContainer from './containers/vote_screen.C';
 import AccountScreenContainer from './containers/account_screen.C';
+import BeersListScreenContainer from './containers/beers_list_screen.C';
 import PrivateRouteContainer from './containers/private_route.C';
 
 class App extends Component {
@@ -41,6 +42,10 @@ class App extends Component {
             <PrivateRouteContainer
               path="/your-beer"
               component={YourBeerScreenContainer}
+            />
+            <PrivateRouteContainer
+              path="/beers-list"
+              component={BeersListScreenContainer}
             />
             <PrivateRouteContainer
               path="/vote"

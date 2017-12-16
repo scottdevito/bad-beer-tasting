@@ -5,6 +5,7 @@ import Menu from 'material-ui/svg-icons/navigation/menu';
 import { white } from 'material-ui/styles/colors';
 import { Link } from 'react-router-dom';
 import ActionHome from 'material-ui/svg-icons/action/home';
+import ActionList from 'material-ui/svg-icons/action/list';
 import LibraryBooks from 'material-ui/svg-icons/av/library-books';
 import LocalDrink from 'material-ui/svg-icons/maps/local-drink';
 import PlaylistAddCheck from 'material-ui/svg-icons/av/playlist-add-check';
@@ -58,6 +59,12 @@ class AppDrawer extends Component {
           <Link to="/your-beer">
             <MenuItem onClick={this.handleClose} leftIcon={<LocalDrink />}>
               Your Beer
+            </MenuItem>
+          </Link>
+
+          <Link to="/beers-list">
+            <MenuItem onClick={this.handleClose} leftIcon={<ActionList />}>
+              Beers List
             </MenuItem>
           </Link>
 
