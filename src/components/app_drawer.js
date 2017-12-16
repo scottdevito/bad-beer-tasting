@@ -60,19 +60,37 @@ class AppDrawer extends Component {
               Your Beer
             </MenuItem>
           </Link>
-          <Link to="/vote">
-            <MenuItem
-              onClick={this.handleClose}
-              leftIcon={<PlaylistAddCheck />}
-            >
-              Vote
-            </MenuItem>
-          </Link>
-          <Link to="/results">
-            <MenuItem onClick={this.handleClose} leftIcon={<Poll />}>
-              Results
-            </MenuItem>
-          </Link>
+
+          {this.props.gameInfo.currentGame !== undefined ? (
+            this.props.gameInfo.currentGame.currentPhase === 'voteBeer' ? (
+              <Link to="/vote">
+                <MenuItem
+                  onClick={this.handleClose}
+                  leftIcon={<PlaylistAddCheck />}
+                >
+                  Vote
+                </MenuItem>
+              </Link>
+            ) : (
+              ''
+            )
+          ) : (
+            ''
+          )}
+
+          {this.props.gameInfo.currentGame !== undefined ? (
+            this.props.gameInfo.currentGame.currentPhase === 'resultBeer' ? (
+              <Link to="/results">
+                <MenuItem onClick={this.handleClose} leftIcon={<Poll />}>
+                  Results
+                </MenuItem>
+              </Link>
+            ) : (
+              ''
+            )
+          ) : (
+            ''
+          )}
         </Drawer>
       </div>
     );

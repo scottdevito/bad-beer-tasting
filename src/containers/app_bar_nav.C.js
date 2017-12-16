@@ -5,6 +5,7 @@ const mapStateToProps = state => {
   return {
     userDbInfo: state.userDbInfo,
     userAuthInfo: state.userAuthInfo,
+    gameInfo: state.gameInfo,
   };
 };
 
