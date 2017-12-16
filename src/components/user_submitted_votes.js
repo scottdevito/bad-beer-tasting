@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, CardText } from 'material-ui/Card';
+import Paper from 'material-ui/Paper';
+
+const style = {
+  marginTop: '2em',
+  maxWidth: '60vw',
+  padding: 10,
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
+};
 
 class UserSubmittedVotes extends Component {
   renderWorstAndBest = () => {
@@ -16,21 +25,17 @@ class UserSubmittedVotes extends Component {
     return (
       <div>
         <div>
-          <Card>
-            <CardTitle title="Your Worst Beer Vote" />
-            <CardText>
-              <h3>{worstBeer[0].name}</h3>
-            </CardText>
-          </Card>
+          <Paper style={style} zDepth={2}>
+            <h2>Your Worst Beer Vote</h2>
+            <h3 style={{ fontWeight: 500 }}>{worstBeer[0].name}</h3>
+          </Paper>
         </div>
 
         <div>
-          <Card>
-            <CardTitle title="Your Best Beer Vote" />
-            <CardText>
-              <h3>{bestBeer[0].name}</h3>
-            </CardText>
-          </Card>
+          <Paper style={style} zDepth={2}>
+            <h2>Your Best Beer Vote</h2>
+            <h3 style={{ fontWeight: 500 }}>{bestBeer[0].name}</h3>
+          </Paper>
         </div>
       </div>
     );
