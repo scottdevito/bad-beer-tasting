@@ -6,7 +6,7 @@ import firebase from 'firebase';
 
 import AppBarNavContainer from './containers/app_bar_nav.C';
 import LoginRegisterScreenContainer from './containers/login_register_screen.C';
-import MainScreen from './screens/main_screen';
+import MainScreenContainer from './containers/main_screen.C';
 import ResultsScreenContainer from './containers/results_screen.C';
 import RulesScreen from './screens/rules_screen';
 import YourBeerScreenContainer from './containers/your_beer_screen.C';
@@ -34,7 +34,10 @@ class App extends Component {
             <AppBarNavContainer />
 
             <Route exact path="/" component={LoginRegisterScreenContainer} />
-            <PrivateRouteContainer path="/main" component={MainScreen} />
+            <PrivateRouteContainer
+              path="/main"
+              component={MainScreenContainer}
+            />
             <PrivateRouteContainer
               path="/your-beer"
               component={YourBeerScreenContainer}
