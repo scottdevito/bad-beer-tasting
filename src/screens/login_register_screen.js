@@ -46,18 +46,18 @@ class LoginRegisterScreen extends Component {
         />
         <div className="login-register">
           <Tabs onChange={this.handleChange} value={this.state.slideIndex}>
-            <Tab label="Login" value={0} />
-            <Tab label="Register" value={1} />
+            <Tab label="Register" value={0} />
+            <Tab label="Login" value={1} />
           </Tabs>
           <SwipeableViews
             index={this.state.slideIndex}
             onChangeIndex={this.handleChange}
           >
             <div style={styles.slide}>
-              <Login fbLogin={this.props.fbLogin} />
+              <Register fbRegister={this.props.fbRegister} />
             </div>
             <div style={styles.slide}>
-              <Register fbRegister={this.props.fbRegister} />
+              <Login fbLogin={this.props.fbLogin} />
             </div>
           </SwipeableViews>
         </div>
